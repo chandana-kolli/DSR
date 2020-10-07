@@ -1,0 +1,31 @@
+__________________________________________________________________________________________________________________________________________________________________________________
+1) Import a CSV file using read.delim () function and add a suitable column of suitable name. Export this file which was modified as tab delimeted without row names
+
+2)Below we have results of a simple experiment to look at the visitation of various bee species to different plants.The number of bees observed was as follows.
+i)Buff Tail:10 1 37 5 12
+ii)Garden bee:8 3 9 6 4
+iii)Red Tail:18 9 12 4
+iv)Carder bee: 8 27 6 32 23
+v)Honey Bee: 12 13 16 9 10
+Make five simple numeric vectors of these data. Next join the bee vectors together to make a data frame. Each row of the resulting frame relates to specific plant, the plant names are Thistle,Vipers,Golden Rain,Yell
+__________________________________________________________________________________________________________________________________________________________________________________
+1   grep(".csv",list.files(),value=T)
+    setwd("C:/Users/admin/Desktop")
+    d<-read.delim("student.csv")
+    d
+    head(d)
+    temp<-data.frame(City=c("Bangalore","Mumbai","Delhi","Pune","Chennai"))
+    d<-cbind(new_col=temp,d)
+    head(d)
+    write.table(d,file = "C:/Users/admin/Desktop/newStudent.txt",sep="\t",col.names = NA,row.names =TRUE)
+    
+
+2   Buff_Tail<-c(10,1,37,5,12)
+    Garden_bee<-c(8,3,9,6,4)
+    Red_Tail<-c(18,9,12,4,2)
+    Carder_bee<-c(8,27,6,32,23)
+    Honey_Bee<-c(12,13,16,9,10)
+    dFrame<-data.frame(Buff_Tail,Garden_bee,Red_Tail,Carder_bee,Honey_Bee)
+    dFrame
+    rownames(dFrame)<-c("Thistle","Vipers","Golden","Rain","Yell")
+    dFrame
