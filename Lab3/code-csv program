@@ -1,0 +1,12 @@
+getwd()
+grep(".csv",list.files(),value=T)
+bankData<-read.csv("bank-data.csv")
+bankData
+head(bankData)
+summary(bankData)
+plot(bankData[,'age'],bankData[,'income'])
+d<-read.delim("bank-data.csv")
+d
+temp<-data.frame(City=c("Bangalore","Mumbai","Delhi","Pune","Chennai"))
+d<-cbind(d,new_col=temp)
+head(d)
