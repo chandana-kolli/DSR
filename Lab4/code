@@ -1,1 +1,42 @@
-
+Q1)Create  a matrix object from the data  that is given in the above question 2. Make a List using the plant names from above as an object to include in the list along with the original data.
+*******************************************************************************************************************************************************************
+BuffTail<-c(10,1,37,5,12)
+GardenBee<-c(8, 3, 9, 6, 4)
+RedTail<-c(18, 9, 12, 4, 6)
+Carderbee<-c(8, 27, 6, 32, 23)
+HoneyBee<-c(12, 13, 16, 9, 10)
+dt=data.frame(BuffTail,GardenBee,RedTail,Carderbee,HoneyBee)
+dt
+mtr<-as.matrix(dt)
+mtr
+class(mtr)
+l1<-list("Thistle","Vipers","Golden","Rain","Yell")
+l1
+rownames(mtr)<-l1
+mtr
+**********************************************************************************************************************************************************************
+Q2)Create a List of data objects of type Numeric , String, Real Numbers and name them.
+*********************************************************************************************************************************************************************
+list_data <- list(1,2,"how are you doing?",3.54,2.3)
+names(list_data)<-c("numeric1","numeric2","string","real1","real2")
+list_data
+*********************************************************************************************************************************************************************
+Q3)Import a Csv file churn_modelling.csv file   facotrize the estimated column to different levels as Low,Mediun and High.
+The conditions are if Estimated value is less than 10000 categorize it as low If the estimated value is above 10000 and below 100000 categorize it as medium and if above 100000 categorize it as High Add the factored variable to the origanl dataset and export the file.(
+*********************************************************************************************************************************************************************
+setwd("C:/Users/admin/Downloads")
+data<-read.csv("Churn_Modelling.csv")
+data
+colnames(data)
+data$EstimatedSalary
+income_group<-vector(mode="character",length=length(data$EstimatedSalary))
+income_group
+income_group[data$EstimatedSalary<10000]<-"Low"
+income_group[data$EstimatedSalary>=10000 & data$EstimatedSalary < 100000]<-"middle"
+income_group[data$EstimatedSalary>100000]<-"High"
+income_group
+spending_level<-factor(income_group,levels=c("Low","middle","High"),ordered=TRUE)
+spending_level
+data<-cbind(data,spending_level)
+data
+write.csv(data,"C:/Users/admin/Desktop/newData.csv",row.names=TRUE)
