@@ -1,0 +1,25 @@
+1.Create a Data Frame of three columns EMPID,SALARY,MARTIAL STATUS of 10 values for each column.Draw a boxplot for salary column for different categories of Martial status(Married,Bachelor).
+***********************************************************************************************************************************************************************************
+install.packages("ggplot2")
+library(ggplot2)
+empid<-c(1,2,3,4,5,6,7,8,9,10)
+salary<-c(20000,30000,50000,25000,25000,80000,45000,50000,70000,30000)
+martial_status<-c("married","bachelor","bachelor","married","married","bachelor","married","bachelor","bachelor","married")
+employee<-data.frame(empid,salary,martial_status)
+employee
+boxplot(salary~martial_status,data=employee,main="1.Box Plot for employee martial status")
+
+
+2.Draw a boxplot selecting random numbers of 100 points from a Normal Distribution with mean 0 and sd=1.Draw a Boxplot and scatterplot where size of each point is 3,
+colour=Blue.Give the appropriate titles for x-axis and Y-axis
+**********************************************************************************************************************************************************************************
+set.seed(100)
+y <- rnorm(100,mean=0,sd=1)
+y
+boxplot(y)
+x<-seq(5,55,5)
+x
+dat<-as.data.frame(cbind(x,y))
+dat
+ggplot()+geom_point(data=dat,aes(x=x,y=norm),size=3,color="blue")+labs(x="Xaxis",y="Yaxis")+ggtitle("2a) Scatter Plot")
+boxplot(dat$x,dat$y,xlab="Xaxis",ylab="yaxis",col="blue",main="2b) Box Plot")
