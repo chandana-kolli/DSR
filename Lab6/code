@@ -1,0 +1,12 @@
+1)Using the dataset Cabbage_Exp(imported from library gcookbook) create a bargraph as shown below for the cultivar field of Cabbage_Exp
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+install.packages('gcookbook')
+library(gcookbook)
+head(cabbage_exp)
+ggplot(cabbage_exp,aes(x=Date,y=Weight,fill=Cultivar))+geom_bar(stat="identity",position="dodge")+geom_text(aes(label=Weight),vjust=1.5,color="white",position=position_dodge(.9),size=3)
+
+2)Create a dotchart from the Mtcars which is loaded from ggplot2 package.Plot the Y axis by naming the different types of Mtcars against MPG values against x-axis
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+library(ggplot2)
+head(mtcars)
+dotchart(mtcars$mpg,labels=row.names(mtcars),cex=0.7,xlab="MPG",main="Miles Per Gallon of Car")
